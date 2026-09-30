@@ -15,8 +15,6 @@ namespace Drag_Race
         private double _tempoZeroCento;
         private int _cilindrata;
 
-
-
         //definiamo le proprietà della classe Moto
         public string Marca
         {
@@ -88,7 +86,8 @@ namespace Drag_Race
             {
                 if (value < 0)
                 {
-                    throw new ArgumentException("La cilindrata non può essere negativa.");
+                    throw new ArgumentOutOfRangeException(nameof(value), value, "La cilindrata non può essere negativa");
+                    //versione più moderna: ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value) senza throw
                 }
                 else
                 {
@@ -109,13 +108,20 @@ namespace Drag_Race
 
         }
 
+
+        //costruttore di copia //attenzione, eliminare il costruttore di default
         public Moto(Moto m) {
+
+            if (m == null)
+                throw new ArgumentNullException(nameof (m), "La moto non puo essere null");
+                    //versione piu moderna senza throw è quella di utilizzare ArgumentNullException.ThrowIfNull(m)
             Marca=m.Marca;
             Modello=m.Modello;
             Cavalli=m.Cavalli;
             TempoZeroCento=m.TempoZeroCento;
             Cilindrata=m.Cilindrata;
         }
+
 
         // override del metodo ToString()
         public override string ToString()
