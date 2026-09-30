@@ -39,7 +39,7 @@ namespace Drag_Race
             get { return _modello; }
             set
             {
-                if (string.IsNullOrWhiteSpace(value))
+                if (string.IsNullOrWhiteSpace(value) || (string.IsNullOrEmpty(value)))
                 {
                     throw new ArgumentException("Il modello non può essere vuoto.");
                 }
@@ -107,6 +107,14 @@ namespace Drag_Race
             Cilindrata = cilindrata;
 
 
+        }
+
+        public Moto(Moto m) {
+            Marca=m.Marca;
+            Modello=m.Modello;
+            Cavalli=m.Cavalli;
+            TempoZeroCento=m.TempoZeroCento;
+            Cilindrata=m.Cilindrata;
         }
 
         // override del metodo ToString()
