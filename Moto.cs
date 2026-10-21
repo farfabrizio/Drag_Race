@@ -37,7 +37,7 @@ namespace Drag_Race
             get { return _modello; }
             set
             {
-                if (string.IsNullOrWhiteSpace(value) || (string.IsNullOrEmpty(value)))
+                if (string.IsNullOrWhiteSpace(value))
                 {
                     throw new ArgumentException("Il modello non può essere vuoto.");
                 }
@@ -109,12 +109,12 @@ namespace Drag_Race
         }
 
 
-        //costruttore di copia //attenzione, eliminare il costruttore di default
+        //costruttore di copia 
         public Moto(Moto m) {
 
             if (m == null)
                 throw new ArgumentNullException(nameof (m), "La moto non puo essere null");
-                    //versione piu moderna senza throw è quella di utilizzare ArgumentNullException.ThrowIfNull(m)
+                    //versione piu moderna senza throw è la ArgumentNullException.ThrowIfNull(m)
             Marca=m.Marca;
             Modello=m.Modello;
             Cavalli=m.Cavalli;

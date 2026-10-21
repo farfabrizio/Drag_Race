@@ -37,11 +37,13 @@ namespace Drag_Race
             {
                 Console.WriteLine(ex.ToString());
             }
+
+            //questo blocco di codice viene eseguito anche se c'è stato un errore nel blocco Try
             Console.WriteLine();
             Console.WriteLine("Blocco successivo al Try and Catch");
 
             Moto m3 = new Moto("Benelli", "Fantic", 50, 5.5, 125);
-            Moto m4 = new Moto(m3);
+            Moto m4 = new Moto(m3); //utilizzo il costruttore di copia per creare un nuovo oggetto m4 a partire da m3
             Console.WriteLine(m3);
             Console.WriteLine(" Creazione Moto con metodo costruttore di copia");
             Console.WriteLine(m4);
@@ -52,7 +54,8 @@ namespace Drag_Race
             //Moto m3 = new Moto("Benelli", "Fantic", 50, 5.5, 125);
             Moto m5 = m3;// ATTENZIONE: Nessun 'new', nessuna copia!
             Console.WriteLine(m5.Equals(m3));
-            m3.Cilindrata = 1200;
+
+            m3.Cilindrata = 1200;  //modifico m3 e vedo che anche m5 cambia perché sono due riferimenti allo stesso oggetto
             Console.WriteLine(m5);
         }
 
