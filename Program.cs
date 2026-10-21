@@ -21,18 +21,19 @@ namespace Drag_Race
                 Console.WriteLine(yamaha1.ConfrontaAccelerazione(kawasaki1));
 
             }
-            catch (ArgumentException ex)  //eccezioni personalizzate utilizzate e previste nelle proprietà
+                       
+            catch (ArgumentNullException ex)   
+            { 
+                Console.WriteLine(ex.ToString());
+            }
+
+             catch (ArgumentException ex)  //eccezioni personalizzate utilizzate e previste nelle proprietà
             {
 
                 Console.WriteLine(ex.ToString());
 
+
             }
-            /*
-            catch (ArgumentNullException ex)   questa scrittura sarebbe inutile visto NullException è figlia di ArgumentException
-            { 
-                Console.WriteLine(ex.ToString());
-            }
-            */
             catch (Exception ex)  // eccezioni generiche non previste
             {
                 Console.WriteLine(ex.ToString());
